@@ -30,7 +30,8 @@ end
 time = Benchmark.measure do
   @primes = Prime.first(203280221)
 end
-puts "count primes 32 bits or fewer: #{@primes.length}"
+puts "get primes 32 bits or fewer: #{@primes.length}"
+puts time
 
 [8, 16, 32].each do |bit_size|
   benchmark_primes_under_bit_size(bit_size)
@@ -53,3 +54,13 @@ end
 #   0.001008   0.000001   0.001009 (  0.001011)
 # count primes 32 bits or fewer: 203280221
 # 561.317393  88.809890 650.127283 (679.776204)
+#
+# with get primes first
+# get primes 32 bits or fewer: 203280221
+# 551.674857  86.462937 638.137794 (669.456197)
+# count primes 8 bits or fewer: 54
+#   0.000022   0.000015   0.000037 (  0.000036)
+# count primes 16 bits or fewer: 6542
+#   0.001040   0.000000   0.001040 (  0.001043)
+# count primes 32 bits or fewer: 203280221
+#  32.077632   0.393656  32.471288 ( 32.688255)
